@@ -6,10 +6,17 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+<%@ taglib prefix="c" 
+			uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var ="contextPath"
+		value="${pageContext.request.contextPath }" />
+<c:forEach var="dto" items="${list }">
+	아이디 : ${dto.id}<br>
+	이름 : ${dto.name}<br>
+	이미지 : ${dto.imageName}<hr>
+</c:forEach>
+<a href="${contextPath }/form">업로드 이동</a>
 
-<P>  The time on the server is ${serverTime}. </P>
+
 </body>
 </html>

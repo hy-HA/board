@@ -4,5 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.care.file.mybatis.FileMapper">
+	<resultMap type="com.care.file.dto.FileDTO" id="files">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="imageName" column="img_name"/>
+	</resultMap>
+
+	<insert id="saveData"> 
+	insert into file_image values(#{id},#{name},#{imageName})
+	</insert>
+	<select id="getImages" resultMap="files">
+		select * from file_image
+	</select>
 
 </mapper>
